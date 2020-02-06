@@ -1,7 +1,7 @@
 # Dependencies and Setup
 from flask import Flask, render_template
 from flask_pymongo import PyMongo
-import mars_scrape5
+import mars_scrape
 
 #################################################
 # Flask Setup
@@ -25,7 +25,7 @@ def index():
 @app.route("/scrape")
 def scrapper():
     mars = mongo.db.mars
-    mars_data = mars_scrape5.scrape()
+    mars_data = mars_scrape.scrape_all()
     mars.update({}, mars_data, upsert=True)
     return "Scraping Successful"
 

@@ -10,23 +10,23 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body  style="background-color: whitesmoke;" >
+<body  style="background-image: url(https://www.simplemost.com/wp-content/uploads/2018/07/6995559030_d8694ea2a6_o_mars-express-750x500.jpg);background-size: 100% 100%; height: 100%" >
 
   <div class="container">
 
     <div class="jumbotron text-center"
-   style = "background-image: url('mars.jpg') ;background-size: 100% 100%; height: 100%;
+   style = "background-image: url('https://www.economist.com/sites/default/files/images/2018/12/articles/main/20181222_stp503.jpg') ;background-size: 100% 100%; height: 100%;
     background-repeat: no-repeat;">
-      <h1 class = "display-4" style = "margin-top: 60px;">Mission to Mars</h1>
+      <h1 class = "display-4" style = "margin-top: 60px; color: cornsilk;">Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
     <!--news section -->
     <div class ="container-fluid">
         <h2><b>Latest Mars News</b></h2>
         <h3><b>{{ mars.news_title }}</b></h3>
-        <p>{{mars.news_date}}</p>
-        <p>{{mars.news_text}}</p>
-        <p>{{mars.news_link}}</p>
+        <p>{{mars.mars_date}}</p>
+        <p>{{mars.mars_paragraph}}</p>
+        <p>{{mars.news_url}}</p>
 
     </div>
 
@@ -35,15 +35,16 @@
         <!--image on the leflt -->
         <div class="col-lg8 col-md-8 col-sm-12">
         <h2><b>Featured Mars Image</b></h2>
-        <img src = "{{mars.featured_image}}" style="max-width:100%; max-height: auto;">
+        <img src = "{{mars.feat_img}}" style="max-width:100%; max-height: auto;">
       </div>
       <!--Weather Card-->
       <div class="col-lg4 col-md-4 col-sm-12">
 
       <div class="card" style="width:18rem;">
-        <div class="card-body text-white bg-dark">
-        <h4 class = "card-title">Current Weather on Mars</h4>
-        <p class="card-text">{{mars.mars_weather}}</p>
+        <div class="card-body text-white bg-dark";><a href='{{mars.tweet_url}}'>
+        <h4 class = "card-title">Current Weather on Mars</h4></a>
+        <p class="card-text">{{mars.tweet_text}}</p>
+        
       </div>
 
 
@@ -52,8 +53,8 @@
       <!--Table-->
       <br>
       <h3>Mars Facts</h3>
-      <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
-        {{ mars.mars_facts}}
+      <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 400px;">
+        {{ mars.data_table | safe}}
       </div>
 
     </div>
