@@ -6,7 +6,7 @@ import mars_scrape
 #################################################
 # Flask Setup
 #################################################
-app = Flask(__name__)
+app = Flask(__name__,template_folder='docs')
 
 #################################################
 # PyMongo Connection Setup
@@ -27,7 +27,7 @@ def scrapper():
     mars = mongo.db.mars
     mars_data = mars_scrape.scrape_all()
     mars.update({}, mars_data, upsert=True)
-    return "Scraping Successful"
+    return render_template("index.html", mars=mars)
 
 # Define Main Behavior
 if __name__ == "__main__":
